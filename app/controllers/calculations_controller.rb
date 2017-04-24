@@ -25,9 +25,15 @@ class CalculationsController < ApplicationController
         
         @principal = params[:principal].to_i
         
-        @interest = params[:interest].to_f/100
+        interest_long = params[:interest].to_f/100
         
-        monthly_payment_long = (@interest/100*@principal)/(1-(1+@interest/100)**-@year)
+        @interest = interest_long.round(2)
+        
+        monthly_interest = @interest/12/100
+        
+        months = @year*12
+        
+        monthly_payment_long = (monthly_interest*@principal)/(1-(1+monthly_interest)**-months)
         
         @monthly_payment = monthly_payment_long.round(2)
 
@@ -67,11 +73,25 @@ class CalculationsController < ApplicationController
     
     def payment
     @apr = params[:apr].to_f
-    interest = @apr/100
+    monthly_interest = @apr/100/12
     @years = params[:years].to_f
+    months=@years*12
     @principal = params[:principal].to_f
-    payment_long = (interest*@principal)/(1-(1+interest)**-@years)
+    payment_long = (monthly_interest*@principal)/(1-(1+monthly_interest)**-months)
     @payment = payment_long.round(2)
     render("calculations/payment.html.erb")
     end
+    
+    def random_form
+        render("calculations/random_form.html.erb")
+    end
+    
+    def random
+    @min = params[:min].to_f
+    @max = params[:max].to_f
+    @random =rand(@min...@max).round(4)
+    #@random = rand(@max-@min)+@min
+    render("calculations/random.html.erb")
+    end
+    
 end

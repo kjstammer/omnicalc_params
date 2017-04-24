@@ -2,7 +2,7 @@
 
 <h4>APR</h4>
 <p>
-<%= @apr %>%
+<%= number_to_percentage(@apr, precision: 4) %>
 </p>
 
 <h4>Number of years</h4>
@@ -12,12 +12,12 @@
 
 <h4>Principal</h4>
 <p>
-$<%= @principal %>
+<%= number_to_currency(@principal) %>
 </p>
 
 <h4>Payment</h4>
 <p>
-$<%= @payment %>
+<%= number_to_currency(@payment) %>
 </p>
 
 
