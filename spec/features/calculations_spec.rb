@@ -73,7 +73,7 @@ feature "First RCAV for square form" do
 end
 
 feature "First RCAV for square form" do
-  it "has a label", points: 1, hint: h("copy_must_match") do
+  it "has a label", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/square/new"
 
     expect(page).to have_css("label", text: "Enter a number")
@@ -155,7 +155,7 @@ feature "First RCAV for square root form" do
 end
 
 feature "First RCAV for square root form" do
-  it "has a label", points: 1, hint: h("copy_must_match") do
+  it "has a label", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/square_root/new"
 
     expect(page).to have_css("label", text: "Enter a number")
@@ -163,7 +163,7 @@ feature "First RCAV for square root form" do
 end
 
 feature "First RCAV for square root form" do
-  it "has an input", points: 1 do
+  it "has an input", points: 1, hint: h("label_for_input") do
     visit "/square_root/new"
 
     expect(page).to have_css("input", count: 1)
@@ -237,7 +237,7 @@ feature "First RCAV for payment form" do
 end
 
 feature "First RCAV for payment form" do
-  it "has a label for APR", points: 1, hint: h("copy_must_match") do
+  it "has a label for APR", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/payment/new"
 
     expect(page).to have_css("label", text: "APR")
@@ -245,7 +245,7 @@ feature "First RCAV for payment form" do
 end
 
 feature "First RCAV for payment form" do
-  it "has a label for number of years", points: 1, hint: h("copy_must_match") do
+  it "has a label for number of years", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/payment/new"
 
     expect(page).to have_css("label", text: "Number of years")
@@ -253,7 +253,7 @@ feature "First RCAV for payment form" do
 end
 
 feature "First RCAV for payment form" do
-  it "has a label for principal", points: 1, hint: h("copy_must_match") do
+  it "has a label for principal", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/payment/new"
 
     expect(page).to have_css("label", text: "Principal")
@@ -261,7 +261,7 @@ feature "First RCAV for payment form" do
 end
 
 feature "First RCAV for payment form" do
-  it "has three inputs", points: 1 do
+  it "has three inputs", points: 1, hint: h("label_for_input") do
     visit "/payment/new"
 
     expect(page).to have_css("input", count: 3)
@@ -381,7 +381,7 @@ feature "First RCAV for random form" do
 end
 
 feature "First RCAV for random form" do
-  it "has a label for minimum", points: 1, hint: h("copy_must_match") do
+  it "has a label for minimum", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/random/new"
 
     expect(page).to have_css("label", text: "Minimum")
@@ -389,7 +389,7 @@ feature "First RCAV for random form" do
 end
 
 feature "First RCAV for random form" do
-  it "has a label for maximum", points: 1, hint: h("copy_must_match") do
+  it "has a label for maximum", points: 1, hint: h("copy_must_match label_for_input") do
     visit "/random/new"
 
     expect(page).to have_css("label", text: "Maximum")
@@ -397,7 +397,7 @@ feature "First RCAV for random form" do
 end
 
 feature "First RCAV for random form" do
-  it "has two inputs", points: 1 do
+  it "has two inputs", points: 1, hint: h("label_for_input") do
     visit "/random/new"
 
     expect(page).to have_css("input", count: 2)
